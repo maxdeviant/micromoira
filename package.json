@@ -1,0 +1,19 @@
+{
+  "name": "micromoira",
+  "version": "1.0.0",
+  "description": "An editor for M I C R O M O I R A.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxdeviant/micromoira"
+  },
+  "author": "Marshall Bowers <elliott.codes@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxdeviant/micromoira/issues"
+  },
+  "homepage": "https://github.com/maxdeviant/micromoira"
+}
