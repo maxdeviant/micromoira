@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/maxdeviant/micromoira",
   "dependencies": {
+    "angular": "^1.4.0",
+    "angular-route": "^1.4.0",
     "jquery": "^2.1.4",
     "materialize-css": "^0.96.1"
   }
