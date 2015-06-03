@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/maxdeviant/micromoira/issues"
   },
-  "homepage": "https://github.com/maxdeviant/micromoira"
+  "homepage": "https://github.com/maxdeviant/micromoira",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "materialize-css": "^0.96.1"
+  }
 }
