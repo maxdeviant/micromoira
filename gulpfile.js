@@ -9,6 +9,7 @@ gulp.task('dist', function () {
     gulp.src([
         'node_modules/angular/angular.min.js',
         'node_modules/angular-route/angular-route.min.js',
+        'node_modules/underscore/underscore-min.js',
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/materialize-css/bin/materialize.js'
     ])

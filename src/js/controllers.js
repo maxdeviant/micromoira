@@ -55,9 +55,14 @@ angular.module('micromoira')
         };
 
         $scope.compile = function () {
-            var story = $scope.scenes[0];
+            var story = _.pick($scope.scenes[0], [
+                'label',
+                'image',
+                'text',
+                'exits'
+            ]);
 
-            $scope.story = JSON.stringify(story, null, 4);
+            $scope.story = angular.toJson(story, 4);
 
             $('#story').openModal();
         };
