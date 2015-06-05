@@ -23,11 +23,7 @@ angular.module('micromoira')
         $scope.countCharacters = function (scene) {
             var count = 22;
 
-            if (scene.hasOwnProperty('isRoot') && scene.isRoot) {
-                count += scene.text.length;
-            } else {
-                count += scene.label.length + scene.text.length;
-            }
+            count += scene.text.length;
 
             if (scene.exits.length > 0) {
                 count += 3;
@@ -55,13 +51,6 @@ angular.module('micromoira')
         };
 
         $scope.compile = function () {
-            var story = _.pick($scope.scenes[0], [
-                'label',
-                'image',
-                'text',
-                'exits'
-            ]);
-
             $scope.story = angular.toJson(story, 4);
 
             $('#story').openModal();
@@ -99,7 +88,6 @@ angular.module('micromoira')
         function init() {
             var scene = createScene();
             scene.label = 'Scene 1';
-            scene.isRoot = true;
 
             $scope.scenes = [scene];
 
