@@ -20,6 +20,26 @@ angular.module('micromoira')
             return scene.exits.length < 2;
         };
 
+        $scope.countCharacters = function (scene) {
+            var count = 22;
+
+            if (scene.hasOwnProperty('isRoot') && scene.isRoot) {
+                count += scene.text.length;
+            } else {
+                count += scene.label.length + scene.text.length;
+            }
+
+            if (scene.exits.length > 0) {
+                count += 3;
+
+                scene.exits.forEach(function (exit) {
+                    count += 25 + exit.label.length
+                });
+            }
+
+            return count;
+        };
+
         $scope.compile = function () {
             var story = $scope.scenes[0];
 
@@ -28,7 +48,8 @@ angular.module('micromoira')
 
         function createScene() {
             return {
-                name: 'Scene ' + (++sceneCount),
+                label: 'Scene ' + (++sceneCount),
+                image: '',
                 text: '',
                 exits: []
             };
@@ -45,13 +66,13 @@ angular.module('micromoira')
         function initMaterialize() {
             $timeout(function () {
                 $('.collapsible').collapsible();
-                $('textarea[name="text"]').characterCounter();
             });
         }
 
         function init() {
             var scene = createScene();
-            scene.name = 'Scene 1';
+            scene.label = 'Scene 1';
+            scene.isRoot = true;
 
             $scope.scenes = [scene];
 

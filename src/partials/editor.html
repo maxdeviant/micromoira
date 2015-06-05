@@ -2,7 +2,7 @@
     <div class="row">
         <ul class="collapsible" data-collapsible="accordion">
             <li ng-repeat="scene in scenes">
-                <div class="collapsible-header">{{scene.name}}</div>
+                <div class="collapsible-header">{{scene.label}}</div>
                 <div class="collapsible-body">
                     <div class="row">
                         <div class="col s12">
@@ -10,7 +10,8 @@
                                 <div class="col s1">&nbsp;</div>
                                 <div class="input-field col s10">
                                     <label class="active" for="name">Name</label>
-                                    <input name="name" type="text" ng-model="scene.name">
+                                    <input name="name" type="text" ng-model="scene.label">
+                                    <span class="character-counter" style="float: right; font-size: 12px; height: 1px;" ng-hide="scene.isRoot">{{140 - countCharacters(scene)}}</span>
                                 </div>
                             </div>
                         </div>
@@ -20,8 +21,9 @@
                             <div class="row">
                                 <div class="col s1">&nbsp;</div>
                                 <div class="input-field col s10">
-                                    <label class="" for="text">Text</label>
-                                    <textarea class="materialize-textarea" name="text" length="120" ng-model="scene.text"></textarea>
+                                    <label for="text">Text</label>
+                                    <textarea class="materialize-textarea" name="text" ng-model="scene.text"></textarea>
+                                    <span class="character-counter" style="float: right; font-size: 12px; height: 1px;">{{140 - countCharacters(scene)}}</span>
                                 </div>
                             </div>
                         </div>
@@ -31,8 +33,9 @@
                             <div class="row">
                                 <div class="col s1">&nbsp;</div>
                                 <div class="input-field col s5" ng-repeat="($index, exit) in scene.exits">
-                                    <label class="" for="exit{{$index + 1}}">Exit {{$index + 1}}</label>
-                                    <input name="exit{{$index + 1}}" type="text" ng-model="exit.name">
+                                    <label class="active" for="exit{{$index + 1}}">Exit {{$index + 1}}</label>
+                                    <input name="exit{{$index + 1}}" type="text" ng-model="exit.label">
+                                    <span class="character-counter" style="float: right; font-size: 12px; height: 1px;">{{140 - countCharacters(scene)}}</span>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +58,6 @@
         <div class="col s12">
             <div class="row right-align">
                 <a class="btn" ng-click="compile()">Compile Story</a>
-                <a class="btn" ng-click="addScene()">Add Scene</a>
             </div>
         </div>
     </div>
