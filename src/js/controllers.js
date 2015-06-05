@@ -51,7 +51,7 @@ angular.module('micromoira')
         };
 
         $scope.compile = function () {
-            $scope.story = angular.toJson(story, 4);
+            $scope.story = angular.toJson($scope.scenes[0], 4);
 
             $('#story').openModal();
         };
