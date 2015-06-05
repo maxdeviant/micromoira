@@ -1,8 +1,8 @@
 <div class="section">
     <div class="row">
         <ul class="collapsible" data-collapsible="accordion">
-            <li ng-repeat="scene in scenes">
-                <div class="collapsible-header">
+            <li ng-repeat="($index, scene) in scenes">
+                <div class="collapsible-header" ng-class="{active: $index === 0}">
                     <span>({{countChildren(scene)}})&nbsp;</span>
                     <span>{{scene.label}}</span>
                 </div>
