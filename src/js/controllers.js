@@ -47,8 +47,10 @@ angular.module('micromoira')
         };
 
         function createScene() {
+            ++sceneCount;
+
             return {
-                label: 'Scene ' + (++sceneCount),
+                label: '',
                 image: '',
                 text: '',
                 exits: []
