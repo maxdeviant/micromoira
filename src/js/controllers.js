@@ -40,10 +40,30 @@ angular.module('micromoira')
             return count;
         };
 
+        $scope.countChildren = function (scene) {
+            var children = 0;
+
+            scene.exits.forEach(function (exit) {
+                if (exit.exits.length > 0) {
+                    children += $scope.countChildren(exit);
+                }
+
+                children++;
+            });
+
+            return children;
+        };
+
         $scope.compile = function () {
             var story = $scope.scenes[0];
 
-            console.log(story);
+            $scope.story = JSON.stringify(story, null, 4);
+
+            $('#story').openModal();
+        };
+
+        $scope.copy = function () {
+            window.prompt('Copy your story:', $scope.story);
         };
 
         function createScene() {
